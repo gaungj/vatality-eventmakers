@@ -9,6 +9,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./vatality.db"
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  username String
+  password String
 }
