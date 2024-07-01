@@ -15,3 +15,13 @@
     @apply block text-sm font-medium text-gray-700;
   }
 }
+
+@layer components {
+  .msg-success {
+    @apply bg-emerald-50 text-emerald-600 text-sm p-2 flex justify-center items-center;
+  }
+
+  .msg-error {
+    @apply bg-rose-50 text-rose-600 text-sm p-2 flex justify-center items-center;
+  }
+}
