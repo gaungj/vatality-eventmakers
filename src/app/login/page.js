@@ -3,11 +3,7 @@
 import { loginAction } from "./loginAction";
 import { useActionState } from "react";
 
-<<<<<<< HEAD
 export default function Page() {
-=======
-export default function page() {
->>>>>>> d23548e (membuat ui login dan authentication login)
   const [state, formAction, pending] = useActionState(loginAction, null);
   return (
     <main className="bg-gray-100 flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
