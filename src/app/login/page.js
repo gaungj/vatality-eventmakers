@@ -1,20 +1,24 @@
-import { registerAction } from "./registerAction";
+"use client";
+
+import { loginAction } from "./loginAction";
+import { useActionState } from "react";
 
 export default function Page() {
+  const [state, formAction, pending] = useActionState(loginAction, null);
   return (
     <main className="bg-gray-100 flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
         <div className="bg-white shadow-md rounded-md p-6">
           <h2 className="my-3 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Sign Up
+            Log In
           </h2>
-          <form action={registerAction} className="space-y-6">
-            <div>
-              <label htmlFor="username">Username</label>
-              <div className="mt-1">
-                <input name="username" type="username" required />
-              </div>
-            </div>
+          <form action={formAction} className="space-y-6">
+            {state?.status === "success" ? (
+              <div className="msg-success">{state.message}</div>
+            ) : null}
+            {state?.status === "error" ? (
+              <div className="msg-error">{state.message}</div>
+            ) : null}
             <div>
               <label htmlFor="email">Email</label>
               <div className="mt-1">
@@ -33,12 +37,11 @@ export default function Page() {
                   name="password"
                   type="password"
                   autoComplete="password"
-                  required
                 />
               </div>
             </div>
             <div>
-              <button>Sign Up</button>
+              <button>Log In</button>
             </div>
           </form>
         </div>
