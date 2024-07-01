@@ -8,7 +8,7 @@ export function auth() {
     return null;
   }
   try {
-    const payload = jwt.verify(token, process.env.SECTET_KEY);
+    const payload = jwt.verify(token, process.env.SECRET_KEY);
     return payload;
   } catch (error) {
     return null;

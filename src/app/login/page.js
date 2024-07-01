@@ -3,7 +3,7 @@
 import { loginAction } from "./loginAction";
 import { useActionState } from "react";
 
-export default function page() {
+export default function Page() {
   const [state, formAction, pending] = useActionState(loginAction, null);
   return (
     <main className="bg-gray-100 flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
