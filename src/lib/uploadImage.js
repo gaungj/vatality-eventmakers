@@ -7,7 +7,7 @@ export async function uploadImage({ key, folder, body }) {
   try {
     const fileUpload = await s3Clients.send(
       new PutObjectCommand({
-        Key: `${folder}/${key}`,
+        Key: key,
         Bucket: process.env.R2_BUCKETNAME,
         Body: buffer,
       })
